@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/menu_new_tab"
+            android:title="New Tab"/>
+    <item
+            android:id="@+id/menu_new_private_tab"
+            android:title="New Private Tab"/>
+    <item
+            android:id="@+id/menu_new_recent_tab"
+            android:title="Recent Tab"/>
+    <item
+            android:id="@+id/menu_duplicate"
+            android:title="Duplicate"/>
+    <item
+            android:id="@+id/menu_find_page"
+            android:title="Find in page"/>
+    <item
+            android:id="@+id/menu_magdocs"
+            android:title="MagDocs"/>
+    <item
+            android:id="@+id/menu_saves"
+            android:title="Saves"/>
+    <item
+            android:id="@+id/menu_notepad"
+            android:title="Notepad"/>
+    <item
+            android:id="@+id/menu_downloads"
+            android:title="Downloads"/>
+    <item
+            android:id="@+id/menu_desktop_site"
+            android:checkable="true"
+            android:title="Desktop site"/>
+    <item
+            android:id="@+id/menu_def_browser"
+            android:title="Set as default browser"/>
+    <item
+            android:id="@+id/menu_back_play"
+            android:checkable="true"
+            android:title="Background Play"/>
+    <item
+            android:id="@+id/menu_settings"
+            android:title="Settings"/>
+
+    <item
+            android:id="@+id/menu_night_mode"
+            android:title="Night Mode"/>
+
+</menu>
