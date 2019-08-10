@@ -35,9 +35,10 @@
             android:id="@+id/current_url_container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:visibility="visible"
             app:layout_constraintTop_toBottomOf="@+id/tabs_container" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp">
+            app:layout_constraintStart_toStartOf="parent"
+    >
         <TextView
                 android:text="Boris Johnsn"
                 android:layout_width="0dp"
@@ -57,12 +58,13 @@
                 android:linksClickable="true"
                 app:layout_constraintTop_toBottomOf="@id/tv_cont_link_title"
                 app:layout_constraintStart_toStartOf="parent"
-                android:id="@+id/tv_link_descrp" app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/tv_link_descrp"
                 tools:layout_conversion_absoluteHeight="237dp"
                 tools:layout_conversion_absoluteWidth="0dp" tools:layout_conversion_wrapWidth="0"
                 tools:layout_conversion_wrapHeight="622" android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toStartOf="@+id/iv_cont_copy" android:layout_marginStart="8dp"
-                app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="1.0"/>
+                app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintBottom_toTopOf="@+id/view" android:layout_marginBottom="8dp"/>
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,6 +101,13 @@
                 android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="@+id/tv_cont_link_title"
                 android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="@+id/tv_link_title"
                 app:layout_constraintVertical_bias="0.5"/>
+        <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/grey_search"
+                android:id="@+id/view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -111,14 +120,5 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/view"/>
-    <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            app:layout_constraintBottom_toTopOf="@id/rv_suggest_link"
-            android:background="@color/grey_search"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:id="@+id/view"
             app:layout_constraintTop_toBottomOf="@+id/current_url_container"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
