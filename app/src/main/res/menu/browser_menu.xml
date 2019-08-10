@@ -8,10 +8,10 @@
             android:title="New Private Tab"/>
     <item
             android:id="@+id/menu_new_recent_tab"
-            android:title="Recent Tab"/>
+            android:title="Recent Tabs"/>
     <item
-            android:id="@+id/menu_duplicate"
-            android:title="Duplicate"/>
+            android:id="@+id/menu_history"
+            android:title="History"/>
     <item
             android:id="@+id/menu_find_page"
             android:title="Find in page"/>

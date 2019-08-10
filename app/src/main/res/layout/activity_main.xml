@@ -6,7 +6,7 @@
         android:layout_width="match_parent" android:layout_height="match_parent"
         tools:context=".MainActivity">
     <include
-            layout="@layout/browser_search_tb"
+            layout="@layout/browser_search_tap_tb"
             android:id="@+id/browser_tb"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

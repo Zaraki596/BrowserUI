@@ -24,8 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val browstb = findViewById<Toolbar>(R.id.browser_tb)
 
-        browstb.inflateMenu(R.menu.browser_menu)
-        browstb.setNavigationIcon(R.drawable.ic_back)
+//        browstb.inflateMenu(R.menu.browser_menu)
 
 
 
@@ -67,8 +66,8 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Notepad Tapped", Toast.LENGTH_SHORT).show()
                     true
                 }
-                R.id.bottom_nav_tap ->{
-                    Toast.makeText(this, "Tap Tapped", Toast.LENGTH_SHORT).show()
+                R.id.bottom_nav_speak ->{
+                    Toast.makeText(this, "Speak Tapped", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.bottom_nav_tabs ->{
@@ -94,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             R.id.menu_new_recent_tab -> {
                 true
             }
-            R.id.menu_duplicate -> {
+            R.id.menu_history -> {
                 true
             }
             R.id.menu_find_page -> {
