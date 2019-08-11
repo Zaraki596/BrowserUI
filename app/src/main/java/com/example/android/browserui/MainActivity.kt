@@ -12,6 +12,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.tab_view.*
 
@@ -19,21 +20,35 @@ import kotlinx.android.synthetic.main.tab_view.*
 class MainActivity : AppCompatActivity() {
 
 
+    private val names: ArrayList<String> = ArrayList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val browstb = findViewById<Toolbar>(R.id.browser_tb)
 
-//        browstb.inflateMenu(R.menu.browser_menu)
+        /*
+        Inflating the Menu for the browstb
+        */
+        browstb.inflateMenu(R.menu.browser_menu)
 
+        //Testing Items
+        addName()
 
+        rv_test.layoutManager = LinearLayoutManager(this)
+        rv_test.adapter = TestAdapter(names, this)
 
+        /*
+        Setting Icon tint null to have the original color of the icon
+         */
         browser_bottom_nav_view.itemIconTintList = null
         tab_bottom_nav_view?.itemIconTintList = null
 
-        browser_bottom_nav_view.getOrCreateBadge(R.id.bottom_nav_tabs)?.number = 3
+//        browser_bottom_nav_view.getOrCreateBadge(R.id.bottom_nav_tabs)?.number = 3
 
-
+        /*
+        Bottom Navigation Item selected items
+         */
         browser_bottom_nav_view.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.bottom_nav_menu -> {
@@ -80,7 +95,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+    /*
+    Menu Options Selected Listenr
+    */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
 
@@ -142,5 +159,40 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    fun addName() {
+        names.add("dog")
+        names.add("cat")
+        names.add("owl")
+        names.add("cheetah")
+        names.add("raccoon")
+        names.add("bird")
+        names.add("snake")
+        names.add("lizard")
+        names.add("hamster")
+        names.add("bear")
+        names.add("lion")
+        names.add("tiger")
+        names.add("horse")
+        names.add("frog")
+        names.add("fish")
+        names.add("shark")
+        names.add("turtle")
+        names.add("elephant")
+        names.add("cow")
+        names.add("beaver")
+        names.add("bison")
+        names.add("porcupine")
+        names.add("rat")
+        names.add("mouse")
+        names.add("goose")
+        names.add("deer")
+        names.add("fox")
+        names.add("moose")
+        names.add("buffalo")
+        names.add("monkey")
+        names.add("penguin")
+        names.add("parrot")
     }
 }
