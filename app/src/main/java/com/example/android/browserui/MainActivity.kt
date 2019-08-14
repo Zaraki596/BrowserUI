@@ -4,14 +4,16 @@ import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.Window
 import android.widget.LinearLayout
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.tab_view.*
@@ -27,10 +29,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val browstb = findViewById<Toolbar>(R.id.browser_tb)
 
-        /*
-        Inflating the Menu for the browstb
-        */
-        browstb.inflateMenu(R.menu.browser_menu)
 
         //Testing Items
         addName()
@@ -44,155 +42,159 @@ class MainActivity : AppCompatActivity() {
         browser_bottom_nav_view.itemIconTintList = null
         tab_bottom_nav_view?.itemIconTintList = null
 
-//        browser_bottom_nav_view.getOrCreateBadge(R.id.bottom_nav_tabs)?.number = 3
-
         /*
         Bottom Navigation Item selected items
          */
         browser_bottom_nav_view.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.bottom_nav_menu -> {
-
-                    Log.d("Check issue", "Reached Here")
-                    Toast.makeText(this, "Menu Tapped", Toast.LENGTH_SHORT).show()
-
-                    val dialog = Dialog(this)
-                    dialog.setCancelable(true)
-                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-                    val window = dialog.window
-                    window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                    dialog.setContentView(R.layout.popup_menu_dialog_view);
-                    val wlp = window?.attributes
-                   // val params = window as LinearLayout.LayoutParams
-                    wlp?.gravity = Gravity.BOTTOM
-                    wlp?.verticalMargin = 0.06f
-                    window?.attributes = wlp
-                    window?.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-                    dialog.show()
-
+                R.id.bottom_nav_search -> {
+                    Toast.makeText(this, "Search Tapped", Toast.LENGTH_SHORT).show()
+                    showDialogPopUp()
                     true
 
                 }
-                R.id.bottom_nav_fav ->{
+                R.id.bottom_nav_fav -> {
                     Toast.makeText(this, "Favorites Tapped", Toast.LENGTH_SHORT).show()
                     true
                 }
-                R.id.bottom_nav_notepad ->{
-                    Toast.makeText(this, "Notepad Tapped", Toast.LENGTH_SHORT).show()
+                R.id.bottom_nav_home -> {
+                    Toast.makeText(this, "Home Tapped", Toast.LENGTH_SHORT).show()
                     true
                 }
-                R.id.bottom_nav_speak ->{
-                    Toast.makeText(this, "Speak Tapped", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.bottom_nav_tabs ->{
-                    Toast.makeText(this, "Tabs Tapped", Toast.LENGTH_SHORT).show()
+                R.id.bottom_nav_options -> {
+                    Toast.makeText(this, "Options Tapped", Toast.LENGTH_SHORT).show()
+                    val popupMenu = PopupMenu(this, browser_bottom_nav_view, Gravity.END)
+                    popupMenu.inflate(R.menu.browser_menu)
+                    popupMenu.setOnMenuItemClickListener {
+                        when (it?.itemId) {
+                            R.id.menu_new_tab -> {
+                                true
+                            }
+                            R.id.menu_new_private_tab -> {
+                                true
+                            }
+                            R.id.menu_offline_pgs -> {
+                                true
+                            }
+                            R.id.menu_history -> {
+                                true
+                            }
+                            R.id.menu_find_page -> {
+                                true
+                            }
+                            R.id.menu_desktop_site -> {
+                                true
+                            }
+                            R.id.menu_default_browser -> {
+                                true
+                            }
+                            R.id.menu_back_play -> {
+                                true
+                            }
+                            R.id.menu_night_mode -> {
+                                true
+                            }
+                            R.id.menu_help -> {
+                                true
+                            }
+                            R.id.menu_share -> {
+                                true
+                            }
+                            R.id.menu_music -> {
+                                true
+                            }
+                            R.id.menu_downloads -> {
+                                true
+                            }
+                            R.id.menu_settings -> {
+                                true
+                            }
+                            else -> {
+                                false
+                            }
+                        }
+                        popupMenu.show()
+
+                        true
+                    }
+                    popupMenu.show()
                     true
                 }
 
-                else -> false
+                    R.id.bottom_nav_tabs -> {
+                        Toast.makeText(this, "Tabs Tapped", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+
+                    else -> false
+                }
             }
         }
-    }
 
     /*
-    Menu Options Selected Listenr
-    */
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+      * Pop Dialog feature - which was not implemented*/
+    private fun showDialogPopUp() {
+        val dialog = Dialog(this)
+        dialog.setCancelable(true)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        val window = dialog.window
+        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setContentView(R.layout.popup_menu_dialog_view)
+        val cardLayout: CardView = dialog.findViewById(R.id.popup_menu_card)
+        val parameter: ConstraintLayout.LayoutParams = cardLayout.layoutParams as ConstraintLayout.LayoutParams
+        parameter.setMargins(16, 16, 16, 200)
+        val wlp = window?.attributes
+        wlp?.gravity = Gravity.BOTTOM
+        window?.attributes = wlp
+        window?.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+        dialog.show()
+    }
 
-            R.id.menu_new_tab -> {
-                true
-            }
-            R.id.menu_new_private_tab -> {
-                true
-            }
-            R.id.menu_new_recent_tab -> {
-                true
-            }
-            R.id.menu_history -> {
-                true
-            }
-            R.id.menu_find_page -> {
-                true
-            }
-            R.id.menu_magdocs -> {
-                true
-            }
-            R.id.menu_saves -> {
-                true
-            }
-            R.id.menu_notepad -> {
-                true
-            }
-            R.id.menu_downloads -> {
-                true
-            }
-            R.id.menu_desktop_site -> {
-                if (item.isChecked()) {
-                    // If item already checked then unchecked it
-                    item.setChecked(false);
-                } else {
-                    // If item is unchecked then checked it
-                    item.setChecked(true);
-                }
+        /*
+    * Showing Pop Up menu on options tap*/
 
-            }
-            R.id.menu_def_browser -> {
-                true
-            }
-            R.id.menu_back_play -> {
-                if (item.isChecked()) {
-                    // If item already checked then unchecked it
-                    item.setChecked(false);
-                } else {
-                    // If item is unchecked then checked it
-                    item.setChecked(true);
-                }
-
-            }
-            R.id.menu_settings -> {
-                true
-            }
-            R.id.menu_night_mode -> {
-                true
-            }
+        fun addName() {
+            names.add("dog")
+            names.add("cat")
+            names.add("owl")
+            names.add("cheetah")
+            names.add("raccoon")
+            names.add("bird")
+            names.add("snake")
+            names.add("lizard")
+            names.add("hamster")
+            names.add("bear")
+            names.add("lion")
+            names.add("tiger")
+            names.add("horse")
+            names.add("frog")
+            names.add("fish")
+            names.add("shark")
+            names.add("turtle")
+            names.add("elephant")
+            names.add("cow")
+            names.add("beaver")
+            names.add("bison")
+            names.add("porcupine")
+            names.add("rat")
+            names.add("mouse")
+            names.add("goose")
+            names.add("deer")
+            names.add("fox")
+            names.add("moose")
+            names.add("buffalo")
+            names.add("monkey")
+            names.add("penguin")
+            names.add("parrot")
         }
-        return super.onOptionsItemSelected(item)
     }
 
-    fun addName() {
-        names.add("dog")
-        names.add("cat")
-        names.add("owl")
-        names.add("cheetah")
-        names.add("raccoon")
-        names.add("bird")
-        names.add("snake")
-        names.add("lizard")
-        names.add("hamster")
-        names.add("bear")
-        names.add("lion")
-        names.add("tiger")
-        names.add("horse")
-        names.add("frog")
-        names.add("fish")
-        names.add("shark")
-        names.add("turtle")
-        names.add("elephant")
-        names.add("cow")
-        names.add("beaver")
-        names.add("bison")
-        names.add("porcupine")
-        names.add("rat")
-        names.add("mouse")
-        names.add("goose")
-        names.add("deer")
-        names.add("fox")
-        names.add("moose")
-        names.add("buffalo")
-        names.add("monkey")
-        names.add("penguin")
-        names.add("parrot")
-    }
-}
+
+
+
+
+
+
+
+
+

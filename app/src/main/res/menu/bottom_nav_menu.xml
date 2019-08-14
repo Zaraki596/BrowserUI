@@ -2,25 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+            android:id="@+id/bottom_nav_home"
+            android:title="Notepad"
+            android:icon="@drawable/ic_home"/>
+    <item
             android:id="@+id/bottom_nav_fav"
             android:title="Fav"
             android:icon="@drawable/ic_heart"/>
     <item
+            android:id="@+id/bottom_nav_search"
+            android:title="Search"
+            android:icon="@drawable/ic_search"/>
+    <item
             android:id="@+id/bottom_nav_tabs"
-            android:title="Tabs"
+            android:title=""
             android:icon="@drawable/ic_tabs"/>
     <item
-            android:id="@+id/bottom_nav_menu"
-            android:title="Menu"
-            android:icon="@drawable/ic_menu"/>
-    <item
-            android:id="@+id/bottom_nav_notepad"
-            android:title="Notepad"
-            android:icon="@drawable/ic_notes"/>
-    <item
-            android:id="@+id/bottom_nav_speak"
-            android:title="Tap"
-            android:icon="@drawable/ic_speak"/>
+            android:id="@+id/bottom_nav_options"
+            android:title="Options"
+            android:icon="@drawable/ic_more"/>
 
 
 </menu>

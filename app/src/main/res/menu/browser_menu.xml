@@ -6,44 +6,57 @@
     <item
             android:id="@+id/menu_new_private_tab"
             android:title="New Private Tab"/>
-    <item
-            android:id="@+id/menu_new_recent_tab"
-            android:title="Recent Tabs"/>
+
+    <item android:id="@+id/menu_offline_pgs"
+          android:title="Offline Pages"/>
     <item
             android:id="@+id/menu_history"
             android:title="History"/>
     <item
             android:id="@+id/menu_find_page"
             android:title="Find in page"/>
-    <item
-            android:id="@+id/menu_magdocs"
-            android:title="MagDocs"/>
-    <item
-            android:id="@+id/menu_saves"
-            android:title="Saves"/>
-    <item
-            android:id="@+id/menu_notepad"
-            android:title="Notepad"/>
-    <item
-            android:id="@+id/menu_downloads"
-            android:title="Downloads"/>
+
     <item
             android:id="@+id/menu_desktop_site"
             android:checkable="true"
             android:title="Desktop site"/>
     <item
-            android:id="@+id/menu_def_browser"
+            android:id="@+id/menu_default_browser"
             android:title="Set as default browser"/>
     <item
             android:id="@+id/menu_back_play"
             android:checkable="true"
             android:title="Background Play"/>
-    <item
-            android:id="@+id/menu_settings"
-            android:title="Settings"/>
 
     <item
             android:id="@+id/menu_night_mode"
             android:title="Night Mode"/>
+
+    <item android:id="@+id/menu_help"
+          android:title="Help &amp; feedback"/>
+
+
+    <item android:id="@+id/row_menu_id"
+          android:title="@null">
+        <menu>
+            <item android:id="@+id/menu_share"
+                  android:title="Share"
+                  android:icon="@drawable/ic_share"
+            />
+            <item android:id="@+id/menu_music"
+                  android:title="Music"
+                  android:icon="@drawable/ic_music"/>
+            <item
+                    android:id="@+id/menu_downloads"
+                    android:title="Downloads"
+                    android:icon="@drawable/ic_downloads"
+            />
+            <item
+                    android:id="@+id/menu_settings"
+                    android:title="Settings"
+                    android:icon="@drawable/ic_settings"
+            />
+        </menu>
+    </item>
 
 </menu>

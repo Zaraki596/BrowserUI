@@ -1,49 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="wrap_content">
+<layout xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <data>
 
-    <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:cardCornerRadius="10dp"
-            android:layout_margin="10dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"
-    >
-        <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
 
-            <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content" app:srcCompat="@drawable/ic_search"
-                    android:id="@+id/iv_pmenu_search"
-                    app:layout_constraintStart_toEndOf="@+id/iv_pmenu_music" app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintEnd_toStartOf="@+id/iv_pmenu_dwnld" app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="4dp" app:layout_constraintBottom_toBottomOf="parent"/>
-            <ImageView
-                    android:layout_width="69dp"
-                    android:layout_height="wrap_content" app:srcCompat="@drawable/ic_music"
-                    android:id="@+id/iv_pmenu_music"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintEnd_toStartOf="@+id/iv_pmenu_search"
-                    app:layout_constraintHorizontal_chainStyle="spread" android:layout_marginStart="8dp"
-                    app:layout_constraintTop_toTopOf="@+id/iv_pmenu_search"
-                    app:layout_constraintBottom_toBottomOf="@+id/iv_pmenu_search"/>
-            <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content" app:srcCompat="@drawable/ic_downloads"
-                    android:id="@+id/iv_pmenu_dwnld"
-                    app:layout_constraintStart_toEndOf="@+id/iv_pmenu_search" app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.cardview.widget.CardView
+                android:id="@+id/popup_menu_card"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:cardCornerRadius="8dp"
+                android:layout_margin="10dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"
+        >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="250dp"
+                    android:layout_height="500dp">
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" app:srcCompat="@drawable/ic_share"
+                        android:id="@+id/iv_pmenu_share"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/iv_pmenu_music"
+                        app:layout_constraintHorizontal_chainStyle="spread" android:layout_marginBottom="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.49"
+                        android:layout_marginStart="8dp"/>
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" app:srcCompat="@drawable/ic_music"
+                        android:id="@+id/iv_pmenu_music"
+                        app:layout_constraintTop_toTopOf="@+id/iv_pmenu_share"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_pmenu_share"
+                        app:layout_constraintStart_toEndOf="@+id/iv_pmenu_share"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintEnd_toStartOf="@+id/iv_pmenu_dwnld"/>
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" app:srcCompat="@drawable/ic_downloads"
+                        android:id="@+id/iv_pmenu_dwnld"
+                        app:layout_constraintTop_toTopOf="@+id/iv_pmenu_music"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_pmenu_music"
+                        app:layout_constraintStart_toEndOf="@+id/iv_pmenu_music"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintEnd_toStartOf="@+id/iv_pmenu_settings"/>
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" app:srcCompat="@drawable/ic_settings"
+                        android:id="@+id/iv_pmenu_settings" app:layout_constraintTop_toTopOf="@+id/iv_pmenu_dwnld"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_pmenu_dwnld"
+                        app:layout_constraintStart_toEndOf="@+id/iv_pmenu_dwnld"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+                <TextView
+                        android:text="New tab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_pmenu_new_tap" android:textColor="#000"
+                        android:textSize="18sp" android:fontFamily="@font/roboto"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_pmenu_new_ptap"
+                        app:layout_constraintStart_toStartOf="@+id/tv_pmenu_new_ptap"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_pmenu_new_ptap"
+                        app:layout_constraintHorizontal_bias="0.0" android:layout_marginBottom="16dp"
+                        android:layout_marginTop="8dp"/>
+                <TextView
+                        android:text="New private tab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_pmenu_new_ptap" android:textSize="18sp"
+                        android:textColor="#000" android:fontFamily="@font/roboto"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_pmenu_new_tap"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_pmenu_oflin_pg"
+                        app:layout_constraintStart_toStartOf="@+id/tv_pmenu_oflin_pg"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_pmenu_oflin_pg"
+                        app:layout_constraintHorizontal_bias="0.0" android:layout_marginBottom="16dp"/>
+                <TextView
+                        android:text="History"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_pmenu_history" android:textColor="#000"
+                        android:textSize="18sp" app:layout_constraintTop_toBottomOf="@+id/tv_pmenu_oflin_pg"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_pmenu_find_pg"
+                        app:layout_constraintStart_toStartOf="@+id/tv_pmenu_find_pg"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_pmenu_find_pg"
+                        app:layout_constraintHorizontal_bias="0.0" android:layout_marginBottom="16dp"/>
+                <TextView
+                        android:text="Find in page"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_pmenu_find_pg" android:textColor="#000"
+                        android:textSize="18sp" android:fontFamily="@font/roboto"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_pmenu_history"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_pmenu_desktp"
+                        app:layout_constraintStart_toStartOf="@+id/tv_pmenu_desktp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_pmenu_desktp"
+                        app:layout_constraintHorizontal_bias="0.0" android:layout_marginBottom="16dp"/>
+                <TextView
+                        android:text="Desktop site"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_pmenu_desktp" android:textColor="#000"
+                        android:textSize="18sp" android:fontFamily="@font/roboto"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_pmenu_find_pg"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_pmenu_deflt_brws"
+                        app:layout_constraintStart_toStartOf="@+id/tv_pmenu_deflt_brws"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_pmenu_deflt_brws"
+                        app:layout_constraintHorizontal_bias="0.0" android:layout_marginBottom="16dp"/>
+                <TextView
+                        android:text="Set as default browser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_pmenu_deflt_brws" android:textSize="18sp"
+                        android:fontFamily="@font/roboto" android:textColor="#000"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_pmenu_desktp"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_pmenu_bg_play"
+                        app:layout_constraintStart_toStartOf="@+id/tv_pmenu_bg_play"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_pmenu_bg_play"
+                        app:layout_constraintHorizontal_bias="0.0" android:layout_marginBottom="16dp"/>
+                <TextView
+                        android:text="Background Play"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_pmenu_bg_play" android:textSize="18sp"
+                        android:textColor="#000" android:fontFamily="@font/roboto"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_pmenu_deflt_brws"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_pmenu_night_mode"
+                        app:layout_constraintStart_toStartOf="@+id/tv_pmenu_night_mode"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_pmenu_night_mode"
+                        app:layout_constraintHorizontal_bias="0.0" android:layout_marginBottom="16dp"/>
+                <TextView
+                        android:text="Night Mode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_pmenu_night_mode"
+                        android:fontFamily="@font/roboto" android:textColor="#000" android:textSize="18sp"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_pmenu_bg_play"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_pmenu_help"
+                        app:layout_constraintStart_toStartOf="@+id/tv_pmenu_help"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_pmenu_help" app:layout_constraintHorizontal_bias="0.0"
+                        android:layout_marginBottom="16dp"/>
+                <TextView
+                        android:text="Help &amp; feedback"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_pmenu_help" android:textColor="#000"
+                        android:textSize="18sp" android:fontFamily="@font/roboto"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_pmenu_night_mode"
+                        app:layout_constraintBottom_toTopOf="@+id/iv_pmenu_music"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.29"
+                        android:layout_marginBottom="16dp"/>
+                <TextView
+                        android:text="Offline pages"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_pmenu_oflin_pg" android:textColor="#000"
+                        android:textSize="18sp" android:fontFamily="@font/roboto"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_pmenu_new_ptap"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_pmenu_history"
+                        app:layout_constraintStart_toStartOf="@+id/tv_pmenu_history"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_pmenu_history"
+                        app:layout_constraintHorizontal_bias="0.0" android:layout_marginBottom="16dp"/>
+                <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cb_desktp_md"
+                        app:layout_constraintTop_toTopOf="@+id/tv_pmenu_desktp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_pmenu_desktp"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"/>
+                <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cb_bg_play_md"
+                        app:layout_constraintTop_toTopOf="@+id/tv_pmenu_bg_play"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_pmenu_bg_play"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
