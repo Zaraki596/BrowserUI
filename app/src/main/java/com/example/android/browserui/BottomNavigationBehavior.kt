@@ -9,13 +9,14 @@ import android.view.animation.DecelerateInterpolator
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.ViewCompat
 import com.google.android.material.snackbar.Snackbar
-import kotlin.math.max
-import kotlin.math.min
+import java.lang.Math.max
+import java.lang.Math.min
 
 
 class BottomNavigationBehavior<V : View>(context: Context, attrs: AttributeSet) :
     CoordinatorLayout.Behavior<V>(context, attrs) {
 
+    @ViewCompat.NestedScrollType
     private var lastStartedType: Int = 0
 
     private var offsetAnimator: ValueAnimator? = null
@@ -50,23 +51,22 @@ class BottomNavigationBehavior<V : View>(context: Context, attrs: AttributeSet) 
     }
 
     override fun onStopNestedScroll(coordinatorLayout: CoordinatorLayout, child: V, target: View, type: Int) {
-        if (!isSnappingEnabled)
-            return
+        if (!isSnappingEnabled) {
+            // added snap behaviour
+            // Logic here borrowed from AppBarLayout onStopNestedScroll code
+            if (lastStartedType == ViewCompat.TYPE_TOUCH || type == ViewCompat.TYPE_NON_TOUCH) {
+                // find nearest seam
+                val currTranslation = child.translationY
+                val childHalfHeight = child.height * 0.5f
 
-        // add snap behaviour
-        // Logic here borrowed from AppBarLayout onStopNestedScroll code
-        if (lastStartedType == ViewCompat.TYPE_TOUCH || type == ViewCompat.TYPE_NON_TOUCH) {
-            // find nearest seam
-            val currTranslation = child.translationY
-            val childHalfHeight = child.height * 0.5f
-
-            // translate down
-            if (currTranslation >= childHalfHeight) {
-                animateBarVisibility(child, isVisible = false)
-            }
-            // translate up
-            else {
-                animateBarVisibility(child, isVisible = true)
+                // translate down
+                if (currTranslation >= childHalfHeight) {
+                    animateBarVisibility(child, isVisible = false)
+                }
+                // translate up
+                else {
+                    animateBarVisibility(child, isVisible = true)
+                }
             }
         }
     }

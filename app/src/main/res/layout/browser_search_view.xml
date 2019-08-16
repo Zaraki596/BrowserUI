@@ -9,7 +9,7 @@
             android:layout_height="match_parent">
         <include
                 android:id="@+id/brows_search_bar_tb"
-                layout="@layout/browser_search_tap_tb"
+                layout="@layout/browsing_search_tb"
         />
 
         <androidx.constraintlayout.widget.ConstraintLayout

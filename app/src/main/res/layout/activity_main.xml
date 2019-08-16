@@ -13,18 +13,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
                 app:elevation="0dp"
-                app:layout_scrollFlags="scroll|enterAlways|snap"
                 android:background="@android:color/transparent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
             <include
+                    layout="@layout/browsing_search_tb"
+                    android:id="@+id/browsing_tb"
                     app:layout_scrollFlags="scroll|enterAlways|snap"
-                    layout="@layout/browser_search_tap_tb"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/browser_tb"
-
-            />
+                    android:layout_height="wrap_content">
+            </include>
         </com.google.android.material.appbar.AppBarLayout>
         <!--Scrolling effect for the bottom nav menu-->
         <androidx.recyclerview.widget.RecyclerView
@@ -36,7 +34,6 @@
         />
         <!--Bottom navigation view for the Selection of the Tabs and Items in Menu-->
         <com.google.android.material.bottomnavigation.BottomNavigationView
-                app:layout_scrollFlags="scroll|enterAlways|snap"
                 android:id="@+id/browser_bottom_nav_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -6,10 +6,11 @@
     <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
+            app:navigationIcon="@drawable/ic_back"
             android:background="@android:color/transparent"
-            app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/ThemeOverlay.AppCompat"
-            app:contentInsetStart="8dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:contentInsetStart="0dp"
             app:contentInsetEnd="8dp"
     >
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +23,6 @@
                     android:padding="8dp"
                     android:paddingEnd="12dp"
                     android:paddingStart="12dp"
-                    android:drawableEnd="@drawable/ic_mic"
                     android:inputType="textWebEditText"
                     android:background="@drawable/rounded_et_search"
                     app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--Menu For the Delete browsing history option on the history screen-->
+    <item   android:id="@+id/menu_history_hr"
+            android:title="Last hour"/>
+    <item   android:id="@+id/menu_history_24hr"
+            android:title="Last 24 Hours"/>
+    <item   android:id="@+id/menu_history_7days"
+            android:title="Last 7 Days"/>
+    <item   android:id="@+id/menu_history_mmnth"
+            android:title="Last 1 month"/>
+    <item   android:id="@+id/menu_history_all_time"
+            android:title="All time"/>
+</menu>

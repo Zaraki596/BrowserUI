@@ -30,7 +30,7 @@
                 android:id="@+id/tab_bottom_nav_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:menu="@menu/tab_view_menu"
+                app:menu="@menu/tab_bottom_view_menu"
                 android:background="#ffff"
                 app:labelVisibilityMode="unlabeled"
                 app:layout_constraintBottom_toBottomOf="parent"

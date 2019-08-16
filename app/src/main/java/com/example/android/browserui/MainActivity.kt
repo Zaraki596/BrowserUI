@@ -5,7 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Gravity
-import android.view.MenuItem
+import android.view.MenuInflater
 import android.view.Window
 import android.widget.LinearLayout
 import android.widget.PopupMenu
@@ -16,7 +16,9 @@ import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.history_view.*
 import kotlinx.android.synthetic.main.tab_view.*
+import java.util.zip.Inflater
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,29 +29,38 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val browstb = findViewById<Toolbar>(R.id.browser_tb)
+        val browstb = findViewById<Toolbar>(R.id.browsing_tb)
+
+        //Delete history popup option
+        /*tv_delete_history.setOnClickListener {
+            val popupMenu = PopupMenu(this, it)
+            val inflater : MenuInflater = popupMenu.menuInflater
+            inflater.inflate(R.menu.delete_history_menu, popupMenu.menu)
+            popupMenu.show()
+
+        }*/
 
 
         //Testing Items
-        addName()
+        addItems()
 
         rv_test.layoutManager = LinearLayoutManager(this)
         rv_test.adapter = TestAdapter(names, this)
 
-        /*
-        Setting Icon tint null to have the original color of the icon
-         */
+
+        //Setting Icon tint null to have the original color of the icon
+
         browser_bottom_nav_view.itemIconTintList = null
         tab_bottom_nav_view?.itemIconTintList = null
 
-        /*
-        Bottom Navigation Item selected items
-         */
+
+        //Bottom Navigation Item selected item options
+
+
         browser_bottom_nav_view.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.bottom_nav_search -> {
                     Toast.makeText(this, "Search Tapped", Toast.LENGTH_SHORT).show()
-                    showDialogPopUp()
                     true
 
                 }
@@ -63,61 +74,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.bottom_nav_options -> {
                     Toast.makeText(this, "Options Tapped", Toast.LENGTH_SHORT).show()
-                    val popupMenu = PopupMenu(this, browser_bottom_nav_view, Gravity.END)
-                    popupMenu.inflate(R.menu.browser_menu)
-                    popupMenu.setOnMenuItemClickListener {
-                        when (it?.itemId) {
-                            R.id.menu_new_tab -> {
-                                true
-                            }
-                            R.id.menu_new_private_tab -> {
-                                true
-                            }
-                            R.id.menu_offline_pgs -> {
-                                true
-                            }
-                            R.id.menu_history -> {
-                                true
-                            }
-                            R.id.menu_find_page -> {
-                                true
-                            }
-                            R.id.menu_desktop_site -> {
-                                true
-                            }
-                            R.id.menu_default_browser -> {
-                                true
-                            }
-                            R.id.menu_back_play -> {
-                                true
-                            }
-                            R.id.menu_night_mode -> {
-                                true
-                            }
-                            R.id.menu_help -> {
-                                true
-                            }
-                            R.id.menu_share -> {
-                                true
-                            }
-                            R.id.menu_music -> {
-                                true
-                            }
-                            R.id.menu_downloads -> {
-                                true
-                            }
-                            R.id.menu_settings -> {
-                                true
-                            }
-                            else -> {
-                                false
-                            }
-                        }
-                        popupMenu.show()
-
-                        true
-                    }
-                    popupMenu.show()
+                    showDialogPopUp()
                     true
                 }
 
@@ -131,8 +88,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-    /*
-      * Pop Dialog feature - which was not implemented*/
+
+    // Pop Dialog Menu for the whole browser settings
     private fun showDialogPopUp() {
         val dialog = Dialog(this)
         dialog.setCancelable(true)
@@ -142,7 +99,6 @@ class MainActivity : AppCompatActivity() {
         dialog.setContentView(R.layout.popup_menu_dialog_view)
         val cardLayout: CardView = dialog.findViewById(R.id.popup_menu_card)
         val parameter: ConstraintLayout.LayoutParams = cardLayout.layoutParams as ConstraintLayout.LayoutParams
-        parameter.setMargins(16, 16, 16, 200)
         val wlp = window?.attributes
         wlp?.gravity = Gravity.BOTTOM
         window?.attributes = wlp
@@ -150,10 +106,8 @@ class MainActivity : AppCompatActivity() {
         dialog.show()
     }
 
-        /*
-    * Showing Pop Up menu on options tap*/
 
-        fun addName() {
+        fun addItems() {
             names.add("dog")
             names.add("cat")
             names.add("owl")
